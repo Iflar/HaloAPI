@@ -1,2 +1,3 @@
 https://docs.google.com/document/d/1MWyJTw9pejnihpja377XQkYnE-HaGVxmOd03Ms_kqvk/edit#heading=h.apyy2fblhnhk - Project Planning
 https://github.com/Iflar/HaloAPI - Repository
+https://trello.com/haloapi1 - Trello Board
