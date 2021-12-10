@@ -75,6 +75,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FactionModels\FactionCreate.cs" />
+    <Compile Include="FactionModels\FactionDetail.cs" />
+    <Compile Include="FactionModels\FactionEdit.cs" />
+    <Compile Include="FactionModels\FactionListItem.cs" />
     <Compile Include="CharacterModels\CharacterCreate.cs" />
     <Compile Include="CharacterModels\CharacterDetail.cs" />
     <Compile Include="CharacterModels\CharacterEdit.cs" />
