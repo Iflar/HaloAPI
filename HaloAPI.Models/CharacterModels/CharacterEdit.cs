@@ -8,6 +8,7 @@ namespace HaloAPI.Models.CharacterModels
 {
     public class CharacterEdit
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int? FactionId { get; set; }
