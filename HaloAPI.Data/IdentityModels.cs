@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.Data.Entity;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -29,5 +30,8 @@ namespace HaloAPI.Data
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Character> Characters { get; set; }
+        public DbSet<Species> Species { get; set; }
+        public DbSet<Faction> Factions { get; set; }
     }
 }
