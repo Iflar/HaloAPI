@@ -76,7 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FactionService.cs" />
+    <Compile Include="CharacterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpeciesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
