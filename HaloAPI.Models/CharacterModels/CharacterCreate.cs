@@ -9,7 +9,7 @@ namespace HaloAPI.Models.CharacterModels
 {
     public class CharacterCreate
     {
-
+        // does this work???
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Renown { get; set; }
