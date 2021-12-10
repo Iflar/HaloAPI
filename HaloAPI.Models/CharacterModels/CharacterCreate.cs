@@ -12,7 +12,6 @@ namespace HaloAPI.Models.CharacterModels
         // does this work???
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Renown { get; set; }
         public int SpeciesId { get; set; }
         public int FactionId { get; set; }
     }
