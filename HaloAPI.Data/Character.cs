@@ -10,6 +10,7 @@ namespace HaloAPI.Data
 {
     public class Character
     {
+        //this is a test
         [Key]
         public int Id { get; set; }
 
