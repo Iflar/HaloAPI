@@ -10,7 +10,6 @@ namespace HaloAPI.Data
 {
     public class Character
     {
-        //this is a test
         [Key]
         public int Id { get; set; }
 
@@ -20,16 +19,16 @@ namespace HaloAPI.Data
         [Required]
         public string LastName { get; set; }
 
+        [Required]
         [ForeignKey(nameof(Species))]
         public int SpeciesId { get; set; }
 
-        [ForeignKey(nameof(Faction))]
-        public int FactionId { get; set; }
 
-        [Required]
+        [ForeignKey(nameof(Faction))]
+        public int? FactionId { get; set; }
+
         public string Description { get; set; }
 
-        [Required]
         public string Renown { get; set; }
     }
 }
