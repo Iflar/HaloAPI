@@ -5,20 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HaloAPI.Data
+namespace HaloAPI.Models.SpeciesModels
 {
-    public class Species
+    public class SpeciesListItem
     {
-        [Key]
-        public int Id { get; set; }
-        
         public int Lifespan { get; set; }
-       
-        public string Origin { get; set; }
 
-        [Required]
-        public string SpeciesName { get; set; }
+        public string Origin { get; set; }
         
+        public string SpeciesName { get; set; }
+
         public double Height { get; set; }
     }
 }
