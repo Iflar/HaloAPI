@@ -8,6 +8,7 @@ namespace HaloAPI.Models.FactionModels
 {
     public class FactionEdit
     {
+        public int Id { get; set; }
         public string FactionName { get; set; }
         public string Motto { get; set; }
     }
