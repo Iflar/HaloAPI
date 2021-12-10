@@ -20,7 +20,7 @@ namespace HaloAPI.Models.FactionModels
         [Required]
         [MinLength(4, ErrorMessage = "Please enter a valid Active Year.")]
         [MaxLength(4, ErrorMessage = "Please enter a valid Active Year.")]
-        public int ActiveYear { get; set;}
+        public int YearActive { get; set;}
 
         [Required]
         [MinLength(5000, ErrorMessage = "Please enter more characters.")]

@@ -75,11 +75,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FactionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HaloAPI.Data\HaloAPI.Data.csproj">
+      <Project>{4F503487-77E6-4375-B82E-6238726FECA4}</Project>
+      <Name>HaloAPI.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaloAPI.Models\HaloAPI.Models.csproj">
+      <Project>{FB021B72-22B5-4695-B496-05C8E393F108}</Project>
+      <Name>HaloAPI.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
