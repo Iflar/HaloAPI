@@ -9,6 +9,7 @@ namespace HaloAPI.Models.SpeciesModels
 {
     public class SpeciesDetail
     {
+        // no it doesn't work 
         public int Id { get; set; }
 
         public int Lifespan { get; set; }
