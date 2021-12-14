@@ -10,13 +10,21 @@ namespace HaloAPI.Services
 {
     public class SpeciesService
     {
-        public bool CreateSpecies(SpeciesCreate)
+        public bool CreateSpecies(SpeciesCreate species)
         {
-            var entity = 
+            var entity =
                 new Species()
                 {
-
-                }
+                    Lifespan = species.Lifespan,
+                    Origin = species.Origin,
+                    SpeciesName = species.SpeciesName,
+                    Height = species.Height
+                };
+            using(var ctx = new ApplicationDbContext())
+            {
+                ctx.Species.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
         }
 
     }
