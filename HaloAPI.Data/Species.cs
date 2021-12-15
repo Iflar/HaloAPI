@@ -10,7 +10,7 @@ namespace HaloAPI.Data
     public class Species
     {
         [Key]
-        public int Id { get; set; }
+        public int SpeciesId { get; set; }
         
         public int Lifespan { get; set; }
        

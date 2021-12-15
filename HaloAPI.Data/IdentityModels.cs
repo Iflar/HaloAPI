@@ -31,7 +31,7 @@ namespace HaloAPI.Data
             return new ApplicationDbContext();
         }
         public DbSet<Character> Characters { get; set; }
-        public DbSet<Species> Species { get; set; }
+        public DbSet<Species> SpeciesList { get; set; }
         public DbSet<Faction> Factions { get; set; }
     }
 }
