@@ -12,6 +12,12 @@ namespace HaloAPI.Services
     {
         public Species GetSpeciesById(int Id)
         {
+<<<<<<< HEAD
+<<<<<<< HEAD
+            using (var ctx);
+=======
+=======
+>>>>>>> 1fbd85174733dbb3685e76dbbadc7892a40eef94
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.SpeciesList.Single(e => e.SpeciesId == Id);
@@ -41,6 +47,10 @@ namespace HaloAPI.Services
                         YearActive = entity.YearActive
                     };
             }
+<<<<<<< HEAD
+>>>>>>> 5f6a2bc822a66c3c5909d40e9b43782c4cae1b2c
+=======
+>>>>>>> 1fbd85174733dbb3685e76dbbadc7892a40eef94
         }
         public bool CreateCharacter(CharacterCreate model)
         {
