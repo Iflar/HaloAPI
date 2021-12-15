@@ -42,6 +42,7 @@ namespace HaloAPI.Services
                     };
             }
         }
+
         //POST
         public bool CreateCharacter(CharacterCreate model)
         {
@@ -115,6 +116,16 @@ namespace HaloAPI.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        //this is an update!
+        //DELETE
+        public bool DeleteCharacter(int characterId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Characters.Single(e => e.CharacterId == characterId);
+                ctx.Characters.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
