@@ -10,7 +10,7 @@ namespace HaloAPI.Data
     public class Faction
     {
         [Key]
-        public int Id { get; set; }
+        public int FactionId { get; set; }
 
         [Required]
         public string FactionName { get; set; }
