@@ -12,7 +12,7 @@ namespace HaloAPI.Services
     {
         public Species GetSpeciesById(int Id)
         {
-            using (var ctx)
+            using (var ctx);
         }
         public bool CreateCharacter(CharacterCreate model)
         {
