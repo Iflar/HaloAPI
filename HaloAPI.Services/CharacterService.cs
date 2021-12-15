@@ -12,12 +12,6 @@ namespace HaloAPI.Services
     {
         public Species GetSpeciesById(int Id)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            using (var ctx);
-=======
-=======
->>>>>>> 1fbd85174733dbb3685e76dbbadc7892a40eef94
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.SpeciesList.Single(e => e.SpeciesId == Id);
@@ -36,21 +30,17 @@ namespace HaloAPI.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Factions.Single(e => e.Id == Id);
+                var entity = ctx.Factions.Single(e => e.FactionId == Id);
                 return
                     new Faction
                     {
-                        Id = entity.Id,
+                        FactionId = entity.FactionId,
                         FactionName = entity.FactionName,
                         Motto = entity.Motto,
                         Engagements = entity.Engagements,
                         YearActive = entity.YearActive
                     };
             }
-<<<<<<< HEAD
->>>>>>> 5f6a2bc822a66c3c5909d40e9b43782c4cae1b2c
-=======
->>>>>>> 1fbd85174733dbb3685e76dbbadc7892a40eef94
         }
         //POST
         public bool CreateCharacter(CharacterCreate model)
@@ -62,7 +52,7 @@ namespace HaloAPI.Services
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 SpeciesId = species.SpeciesId,
-                FactionId = faction.Id
+                FactionId = faction.FactionId
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -103,7 +93,7 @@ namespace HaloAPI.Services
                       CharacterId = entity.CharacterId,
                       Renown = entity.Renown,
                       SpeciesId = species.SpeciesId,
-                      FactionId = faction.Id
+                      FactionId = faction.FactionId
                     };
             }
         }
@@ -120,10 +110,11 @@ namespace HaloAPI.Services
                 entity.LastName = model.LastName;
                 entity.Description = model.Description;
                 entity.Renown = model.Renown;
-                entity.FactionId = faction.Id;
+                entity.FactionId = faction.FactionId;
 
                 return ctx.SaveChanges() == 1;
             }
         }
+        //this is an update!
     }
 }
