@@ -22,8 +22,23 @@ namespace HaloAPI.Services
                 };
             using(var ctx = new ApplicationDbContext())
             {
-                ctx.Species.Add(entity);
+                ctx.SpeciesList.Add(entity);
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public IEnumerable<SpeciesListItem> GetSpecies()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                ctx.SpeciesList
+                    .Select(
+                    e =>
+                    new SpeciesListItem
+                    {
+                        
+                    })
             }
         }
 
