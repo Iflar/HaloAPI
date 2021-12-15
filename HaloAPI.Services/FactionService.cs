@@ -26,6 +26,6 @@ namespace HaloAPI.Services
                 ctx.Factions.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
-        }   
+        }
     }
 }
