@@ -1,10 +1,10 @@
-﻿using HaloAPI.Services;
+﻿using HaloAPI.Models.FactionModels;
+using HaloAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace HaloAPI.WebAPI.Controllers
 {
@@ -15,6 +15,43 @@ namespace HaloAPI.WebAPI.Controllers
         {
             var factionService = CreateFactionService();
             return factionService;
+        }
+        public IHttpActionResult Get()
+        {
+            FactionService factionService = CreateFactionService();
+            var factions = factionService.GetFaction();
+            return Ok(factions);
+        }
+        public IHttpActionResult Post(FactionCreate factions)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreateFactionService();
+
+            if (!service.CreateFaction(factions))
+                return InternalServerError();
+
+            return Ok();
+        }
+        public IHttpActionResult Put(FactionEdit faction)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreateFactionService();
+
+            if (!service.UpdateFaction(faction))
+                return InternalServerError();
+
+            return Ok();
+        }
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateFactionService();
+
+            if (!service.DeleteFaction(id))
+                return InternalServerError();
+
+            return Ok();
         }
     }
 }
