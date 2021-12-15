@@ -14,11 +14,11 @@ namespace HaloAPI.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.SpeciesList.Single(e => e.Id == Id);
+                var entity = ctx.SpeciesList.Single(e => e.SpeciesId == Id);
                 return
                     new Species
                     {
-                        Id = entity.Id,
+                        SpeciesId = entity.SpeciesId,
                         Lifespan = entity.Lifespan,
                         Height = entity.Height,
                         Origin = entity.Origin,
@@ -33,7 +33,7 @@ namespace HaloAPI.Services
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                SpeciesId = species.Id,
+                SpeciesId = species.SpeciesId,
                 FactionId = model.FactionId
             };
             return false;
