@@ -26,7 +26,22 @@ namespace HaloAPI.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
+        public Species GetSpeciesById(int Id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.SpeciesList.Single(e => e.SpeciesId == Id);
+                return
+                    new Species
+                    {
+                        SpeciesId = entity.SpeciesId,
+                        Lifespan = entity.Lifespan,
+                        Height = entity.Height,
+                        Origin = entity.Origin,
+                        SpeciesName = entity.SpeciesName
+                    };
+            }
+        }
         public IEnumerable<SpeciesListItem> GetSpecies()
         {
             using(var ctx = new ApplicationDbContext())
@@ -37,10 +52,46 @@ namespace HaloAPI.Services
                     e =>
                     new SpeciesListItem
                     {
-                        
-                    })
+                        SpeciesId = e.SpeciesId,
+                        Lifespan = e.Lifespan,
+                        Origin = e.Origin,
+                        SpeciesName = e.SpeciesName,
+                        Height = e.Height
+                    }
+                );
+                return query.ToArray();
             }
         }
+        public bool UpdateSpecies(SpeciesEdit species)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .SpeciesList
+                    .Single(e => e.SpeciesId == species.Id);
 
+                entity.SpeciesName = species.SpeciesName;
+                entity.Lifespan = species.Lifespan;
+                entity.Origin = species.Origin;
+                entity.Height = species.Height;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteSpecies(int speciesId)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .SpeciesList
+                    .Single(e => e.SpeciesId == speciesId);
+
+                ctx.SpeciesList.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
