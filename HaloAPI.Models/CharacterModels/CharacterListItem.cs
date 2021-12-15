@@ -8,7 +8,7 @@ namespace HaloAPI.Models.CharacterModels
 {
     public class CharacterListItem
     {
-        public int Id { get; set; }
+        public int CharacterId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
