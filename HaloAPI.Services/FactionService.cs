@@ -27,5 +27,75 @@ namespace HaloAPI.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public Faction GetFactionById(int Id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Factions
+                    .Single(e => e.FactionId == Id);
+                return
+                    new Faction
+                    {
+                        FactionId = entity.FactionId,
+                        FactionName = entity.FactionName,
+                        YearActive = entity.YearActive,
+                        Motto = entity.Motto,
+                        Engagements = entity.Engagements
+                    };
+            }
+        }
+        public IEnumerable<FactionListItem> GetFaction()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Factions
+                        .Select(
+                        e =>
+                    new FactionListItem
+                    {
+                        FactionId = e.FactionId,
+                        FactionName = e.FactionName,
+                        YearActive = e.YearActive,
+                        Motto = e.Motto,
+                        Engagements = e.Engagements
+                    }
+                );
+                return query.ToArray();
+            }    
+        }
+        public bool UpdateFaction(FactionEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Factions
+                    .Single(e => e.FactionId == model.FactionId);
+
+                entity.FactionId = model.FactionId;
+                entity.FactionName = model.FactionName;
+                entity.Motto = model.Motto;
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
+        public bool DeleteFaction(int factionId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                     ctx
+                    .Factions
+                    .Single(e => e.FactionId == factionId);
+                ctx.Factions.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

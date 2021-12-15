@@ -52,6 +52,8 @@ namespace HaloAPI.Services
                     e =>
                     new SpeciesListItem
                     {
+
+                    });
                         SpeciesId = e.SpeciesId,
                         Lifespan = e.Lifespan,
                         Origin = e.Origin,
