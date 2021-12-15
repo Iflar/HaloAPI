@@ -11,7 +11,7 @@ namespace HaloAPI.Data
     public class Character
     {
         [Key]
-        public int CharactrId { get; set; }
+        public int CharacterId { get; set; }
 
         [Required]
         public string FirstName { get; set; }
@@ -25,7 +25,7 @@ namespace HaloAPI.Data
 
 
         [ForeignKey(nameof(Faction))]
-        public int? FactionId { get; set; }
+        public int FactionId { get; set; }
 
         public string Description { get; set; }
 
