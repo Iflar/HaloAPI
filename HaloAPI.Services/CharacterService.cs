@@ -42,6 +42,7 @@ namespace HaloAPI.Services
                     };
             }
         }
+        //POST
         public bool CreateCharacter(CharacterCreate model)
         {
             Species species = GetSpeciesById(model.SpeciesId);
@@ -56,6 +57,61 @@ namespace HaloAPI.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Characters.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        //GET
+        public IEnumerable<CharacterListItem> GetCharacters()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Characters.Select(
+                    e =>
+                    new CharacterListItem
+                    {
+                        CharacterId = e.CharacterId,
+                        FirstName = e.FirstName,
+                        LastName = e.LastName
+                    }
+                );
+                return query.ToArray();
+            }
+        }
+        //GET
+        public CharacterDetail GetCharacterByID(int Id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Characters.Single(e => e.CharacterId == Id);
+                Species species = GetSpeciesById(entity.SpeciesId);
+                Faction faction = GetFactionById(entity.FactionId);
+                return
+                    new CharacterDetail
+                    {
+                      FirstName = entity.FirstName,
+                      LastName = entity.LastName,
+                      CharacterId = entity.CharacterId,
+                      Renown = entity.Renown,
+                      SpeciesId = species.SpeciesId,
+                      FactionId = faction.Id
+                    };
+            }
+        }
+        //PUT
+        public bool UpdateCharacter(CharacterEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Characters.Single(e => e.CharacterId == model.CharacterId);
+
+                Faction faction = GetFactionById(entity.FactionId);
+
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.Description = model.Description;
+                entity.Renown = model.Renown;
+                entity.FactionId = faction.Id;
+
                 return ctx.SaveChanges() == 1;
             }
         }
