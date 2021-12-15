@@ -44,9 +44,26 @@ namespace HaloAPI.Services
                     };
             }
         }
-        public IEnumerable<SpeciesListItem> GetSpecies()
+        public bool UpdateSpecies(SpeciesEdit species)
         {
             using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .SpeciesList
+                    .Single(e => e.SpeciesId == species.Id);
+
+                entity.SpeciesName = species.SpeciesName;
+                entity.Lifespan = species.Lifespan;
+                entity.Origin = species.Origin;
+                entity.Height = species.Height;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public IEnumerable<SpeciesListItem> GetSpecies()
+        {
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                 ctx.SpeciesList
@@ -64,23 +81,6 @@ namespace HaloAPI.Services
                     }
                 );
                 return query.ToArray();
-            }
-        }
-        public bool UpdateSpecies(SpeciesEdit species)
-        {
-            using(var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .SpeciesList
-                    .Single(e => e.SpeciesId == species.Id);
-
-                entity.SpeciesName = species.SpeciesName;
-                entity.Lifespan = species.Lifespan;
-                entity.Origin = species.Origin;
-                entity.Height = species.Height;
-
-                return ctx.SaveChanges() == 1;
             }
         }
         public bool DeleteSpecies(int speciesId)
