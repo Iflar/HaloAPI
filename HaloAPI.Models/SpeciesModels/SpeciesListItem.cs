@@ -9,6 +9,8 @@ namespace HaloAPI.Models.SpeciesModels
 {
     public class SpeciesListItem
     {
+        public int SpeciesId { get; set; }
+
         public int Lifespan { get; set; }
 
         public string Origin { get; set; }
