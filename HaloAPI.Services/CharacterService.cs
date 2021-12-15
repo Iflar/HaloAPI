@@ -41,10 +41,6 @@ namespace HaloAPI.Services
                         YearActive = entity.YearActive
                     };
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c1ad50e1d0229477ee3fa71e9899823163bf622
         }
 
         //POST
