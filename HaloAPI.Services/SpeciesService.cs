@@ -37,8 +37,8 @@ namespace HaloAPI.Services
                     e =>
                     new SpeciesListItem
                     {
-                        
-                    })
+
+                    });
             }
         }
 
