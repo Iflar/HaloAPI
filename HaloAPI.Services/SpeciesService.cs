@@ -1,4 +1,4 @@
-﻿using HaloAPI.Data;
+using HaloAPI.Data;
 using HaloAPI.Models.SpeciesModels;
 using System;
 using System.Collections.Generic;
