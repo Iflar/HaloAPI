@@ -11,7 +11,7 @@ namespace HaloAPI.Data
     public class Character
     {
         [Key]
-        public int Id { get; set; }
+        public int CharactrId { get; set; }
 
         [Required]
         public string FirstName { get; set; }
