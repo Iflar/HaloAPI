@@ -16,7 +16,7 @@ namespace HaloAPI.Data
         public string FactionName { get; set; }
 
         [Required]
-        public int YearActive { get; set; }
+        public string YearActive { get; set; }
 
         [Required]
         public string Motto { get; set; }
