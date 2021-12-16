@@ -20,5 +20,7 @@ namespace HaloAPI.Data
         public string SpeciesName { get; set; }
         
         public double Height { get; set; } //Convert
+
+        public string NickName { get; set; }
     }
 }
