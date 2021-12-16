@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using HaloAPI.WebAPI.Providers;
 using HaloAPI.WebAPI.Models;
+using HaloAPI.Data;
 
 namespace HaloAPI.WebAPI
 {
