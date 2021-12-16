@@ -13,7 +13,7 @@ namespace HaloAPI.WebAPI.Controllers
     {
         private FactionService CreateFactionService()
         {
-            var factionService = CreateFactionService();
+            var factionService = new FactionService();
             return factionService;
         }
         public IHttpActionResult Get()
