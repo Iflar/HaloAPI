@@ -17,9 +17,6 @@ namespace HaloAPI.Models.FactionModels
         [MaxLength(100)]
         public string Motto { get; set; }
 
-        [Required]
-        [MinLength(4, ErrorMessage = "Please enter a valid Active Year.")]
-        [MaxLength(4, ErrorMessage = "Please enter a valid Active Year.")]
         public int YearActive { get; set;}
 
         [Required]
