@@ -29,9 +29,9 @@ namespace HaloAPI.WebAPI.Controllers
         public IHttpActionResult GetById(int id)
         {
             var service = CreateSpeciesSerivce();
-            var character = service.GetSpeciesById(id);
+            var species = service.GetSpeciesById(id);
 
-            return Ok();
+            return Ok(species);
         }
 
         public IHttpActionResult Post(SpeciesCreate species)
