@@ -12,13 +12,13 @@ namespace HaloAPI.Data
         [Key]
         public int SpeciesId { get; set; }
         
-        public int Lifespan { get; set; }
+        public int Lifespan { get; set; } //Interpolation
        
         public string Origin { get; set; }
 
         [Required]
         public string SpeciesName { get; set; }
         
-        public double Height { get; set; }
+        public double Height { get; set; } //Convert
     }
 }
