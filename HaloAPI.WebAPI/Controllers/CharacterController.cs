@@ -26,6 +26,15 @@ namespace HaloAPI.WebAPI.Controllers
             return Ok(characters);
         }
 
+        public IHttpActionResult GetById(int id)
+        {
+            var service = CreateCharacterService();
+
+            var character = service.GetCharacterByID(id);
+
+            return Ok(character);
+        }
+
         public IHttpActionResult Post(CharacterCreate character)
         {
             if (!ModelState.IsValid)
