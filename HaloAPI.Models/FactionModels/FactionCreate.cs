@@ -13,7 +13,7 @@ namespace HaloAPI.Models.FactionModels
 
         public string Motto { get; set; }
 
-        public int YearActive { get; set;}
+        public string YearActive { get; set;}
 
         public string Engagements { get; set; }
 

@@ -10,7 +10,7 @@ namespace HaloAPI.Models.FactionModels
     {
         public int FactionId { get; set; }
         public string FactionName { get; set; }
-        public int YearActive { get; set; }
+        public string YearActive { get; set; }
         public string Motto { get; set; }
         public string Engagements { get; set; }
     }
