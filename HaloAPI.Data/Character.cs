@@ -19,10 +19,13 @@ namespace HaloAPI.Data
         [Required]
         public string LastName { get; set; }
 
+        public virtual Species Species { get; set; }
+
         [Required]
         [ForeignKey(nameof(Species))]
         public int SpeciesId { get; set; }
 
+        public virtual Faction Faction { get; set; }
 
         [ForeignKey(nameof(Faction))]
         public int FactionId { get; set; }
