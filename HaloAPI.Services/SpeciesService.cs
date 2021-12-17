@@ -44,7 +44,18 @@ namespace HaloAPI.Services
                     };
             }
         }
+        ////public Character GetCharactersBySpecies(int Id)
+        //{
+        //    using(var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity = ctx.Characters.Single(e => e.SpeciesId == Id);
+        //        return
+        //            new Character
+        //            {
 
+        //            }
+        //    }
+        //}
 
         public bool UpdateSpecies(SpeciesEdit species)
         {

@@ -19,5 +19,7 @@ namespace HaloAPI.Models.SpeciesModels
         public string SpeciesName { get; set; }
 
         public double Height { get; set; }
+
+        public string NickName { get; set; }
     }
 }
