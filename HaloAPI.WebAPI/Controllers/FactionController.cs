@@ -28,6 +28,12 @@ namespace HaloAPI.WebAPI.Controllers
             var faction = service.GetFactionById(id);
             return Ok(faction);
         }
+        public IHttpActionResult GetByFactionName(string factionName)
+        {
+            var service = CreateFactionService();
+            var character = service.GetCharacterByFactionName(factionName);
+            return Ok(character);
+        }
         public IHttpActionResult Post(FactionCreate factions)
         {
             if (!ModelState.IsValid)
