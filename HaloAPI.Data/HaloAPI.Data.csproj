@@ -90,6 +90,10 @@
     <Compile Include="Migrations\202112162338409_Added NickName To Species Class.Designer.cs">
       <DependentUpon>202112162338409_Added NickName To Species Class.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112170153269_GetSpeciesName.cs" />
+    <Compile Include="Migrations\202112170153269_GetSpeciesName.Designer.cs">
+      <DependentUpon>202112170153269_GetSpeciesName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Species.cs" />
@@ -107,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112162338409_Added NickName To Species Class.resx">
       <DependentUpon>202112162338409_Added NickName To Species Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112170153269_GetSpeciesName.resx">
+      <DependentUpon>202112170153269_GetSpeciesName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
