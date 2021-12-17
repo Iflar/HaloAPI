@@ -1,4 +1,5 @@
 ﻿using HaloAPI.Data;
+using HaloAPI.Models.CharacterModels;
 using HaloAPI.Models.FactionModels;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,12 @@ namespace HaloAPI.Services
 {
     public class FactionService
     {
+        private readonly Guid _userId;
+
+        public FactionService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateFaction(FactionCreate model)
         {
             var entity =
@@ -45,6 +52,26 @@ namespace HaloAPI.Services
                         Engagements = entity.Engagements
                     };
             }
+        }
+        public IEnumerable<CharacterListItem> GetCharacterByFactionName(string factionName)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Characters
+                    .Where(e => e.Faction.FactionName == factionName)
+                    .Select(
+                        e =>
+                        new CharacterListItem
+                        {
+                            CharacterId = e.CharacterId,
+                            FirstName = e.FirstName,
+                            LastName = e.LastName
+                        }
+                      );
+                return query.ToArray();
+            }       
         }
         public IEnumerable<FactionListItem> GetFaction()
         {

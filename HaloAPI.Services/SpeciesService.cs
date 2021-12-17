@@ -10,9 +10,11 @@ namespace HaloAPI.Services
 {
     public class SpeciesService
     {
-        //This is an update
-        //Anotha one
-        //Last one
+        private readonly Guid _userId;
+        public SpeciesService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateSpecies(SpeciesCreate species)
         {
             var entity =

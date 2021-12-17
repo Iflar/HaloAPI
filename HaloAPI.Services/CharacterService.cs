@@ -32,6 +32,7 @@ namespace HaloAPI.Services
                     };
             }
         }
+
         public Faction GetFactionById(int Id)
         {
             using (var ctx = new ApplicationDbContext())
