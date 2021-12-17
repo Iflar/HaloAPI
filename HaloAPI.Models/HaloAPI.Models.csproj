@@ -93,5 +93,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HaloAPI.Data\HaloAPI.Data.csproj">
+      <Project>{4F503487-77E6-4375-B82E-6238726FECA4}</Project>
+      <Name>HaloAPI.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
