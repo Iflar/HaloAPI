@@ -11,6 +11,12 @@ namespace HaloAPI.Services
 {
     public class FactionService
     {
+        private readonly Guid _userId;
+
+        public FactionService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateFaction(FactionCreate model)
         {
             var entity =
