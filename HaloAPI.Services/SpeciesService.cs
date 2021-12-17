@@ -23,7 +23,8 @@ namespace HaloAPI.Services
                     Lifespan = species.Lifespan,
                     Origin = species.Origin,
                     SpeciesName = species.SpeciesName,
-                    Height = species.Height
+                    Height = species.Height,
+                    NickName = species.NickName
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -59,6 +60,7 @@ namespace HaloAPI.Services
                 entity.Lifespan = species.Lifespan;
                 entity.Origin = species.Origin;
                 entity.Height = species.Height;
+                entity.NickName = species.NickName;
                 return ctx.SaveChanges() == 1;
             }
         }
