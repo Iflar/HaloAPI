@@ -34,6 +34,11 @@ namespace HaloAPI.WebAPI.Controllers
             return Ok(species);
         }
 
+        public IHttpActionResult GetBySpeciesId(int Id)
+        {
+
+        }
+
         public IHttpActionResult Post(SpeciesCreate species)
         {
             if (!ModelState.IsValid)
