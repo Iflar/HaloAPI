@@ -95,7 +95,9 @@ namespace HaloAPI.Services
                         CharacterId = entity.CharacterId,
                         Renown = entity.Renown,
                         Species = species.SpeciesName,
-                        Faction = faction.FactionName
+                        Faction = faction.FactionName,
+                        SpeciesId = entity.SpeciesId,
+                        FactionId = entity.FactionId
                     };
             }
         }
