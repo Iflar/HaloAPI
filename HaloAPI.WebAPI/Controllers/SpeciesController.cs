@@ -15,7 +15,8 @@ namespace HaloAPI.WebAPI.Controllers
     {
         private SpeciesService CreateSpeciesSerivce()
         {
-            var speciesService = new SpeciesService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var speciesService = new SpeciesService(userId);
             return speciesService;
         }
 
