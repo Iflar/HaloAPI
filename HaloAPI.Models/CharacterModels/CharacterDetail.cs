@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HaloAPI.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace HaloAPI.Models.CharacterModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Renown { get; set; }
+        public string Species { get; set; }
+        public string Faction { get; set; }
         public int SpeciesId { get; set; }
         public int FactionId { get; set; }
     }

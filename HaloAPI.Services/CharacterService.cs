@@ -86,15 +86,16 @@ namespace HaloAPI.Services
                 var entity = ctx.Characters.Single(e => e.CharacterId == Id);
                 Species species = GetSpeciesById(entity.SpeciesId);
                 Faction faction = GetFactionById(entity.FactionId);
+
                 return
                     new CharacterDetail
                     {
-                      FirstName = entity.FirstName,
-                      LastName = entity.LastName,
-                      CharacterId = entity.CharacterId,
-                      Renown = entity.Renown,
-                      SpeciesId = species.SpeciesId,
-                      FactionId = faction.FactionId
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+                        CharacterId = entity.CharacterId,
+                        Renown = entity.Renown,
+                        Species = species.SpeciesName,
+                        Faction = faction.FactionName
                     };
             }
         }
@@ -126,6 +127,28 @@ namespace HaloAPI.Services
 
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+        public Species GetSpeciesByCharacterId(int id)
+        {
+            var character = GetCharacterByID(id);
+
+            int speciesId = character.SpeciesId;
+
+            Species species = GetSpeciesById(speciesId);
+
+            return species;
+        }
+
+        public Faction GetFactionByCharacterId(int id)
+        {
+            var character = GetCharacterByID(id);
+
+            int factionId = character.FactionId;
+
+            Faction faction = GetFactionById(factionId);
+
+            return faction;
         }
     }
 }
