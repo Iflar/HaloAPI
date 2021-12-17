@@ -1,5 +1,6 @@
 ﻿using HaloAPI.Models.FactionModels;
 using HaloAPI.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace HaloAPI.WebAPI.Controllers
     {
         private FactionService CreateFactionService()
         {
-            var factionService = new FactionService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var factionService = new FactionService(userId);
             return factionService;
         }
         public IHttpActionResult Get()
