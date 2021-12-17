@@ -33,10 +33,12 @@ namespace HaloAPI.WebAPI.Controllers
 
             return Ok(species);
         }
-
-        public IHttpActionResult GetBySpeciesId(int Id)
+        public IHttpActionResult GetBySpeciesName(string speciesName)
         {
+            var service = CreateSpeciesSerivce();
+            var character = service.GetCharactersBySpeciesName(speciesName);
 
+            return Ok(character);
         }
 
         public IHttpActionResult Post(SpeciesCreate species)
