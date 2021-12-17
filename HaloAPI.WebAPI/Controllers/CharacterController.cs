@@ -15,7 +15,8 @@ namespace HaloAPI.WebAPI.Controllers
     {
         private CharacterService CreateCharacterService()
         {
-            var characterService = new CharacterService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var characterService = new CharacterService(userId);
             return characterService;
         }
 

@@ -10,6 +10,12 @@ namespace HaloAPI.Services
 {
     public class CharacterService
     {
+        private readonly Guid _userId;
+
+        public CharacterService(Guid userId)
+        {
+            _userId = userId;
+        }
         public Species GetSpeciesById(int Id)
         {
             using (var ctx = new ApplicationDbContext())
