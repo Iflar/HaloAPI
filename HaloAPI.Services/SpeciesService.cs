@@ -1,4 +1,5 @@
 using HaloAPI.Data;
+using HaloAPI.Models.CharacterModels;
 using HaloAPI.Models.SpeciesModels;
 using System;
 using System.Collections.Generic;
@@ -44,19 +45,6 @@ namespace HaloAPI.Services
                     };
             }
         }
-        ////public Character GetCharactersBySpecies(int Id)
-        //{
-        //    using(var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity = ctx.Characters.Single(e => e.SpeciesId == Id);
-        //        return
-        //            new Character
-        //            {
-
-        //            }
-        //    }
-        //}
-
         public bool UpdateSpecies(SpeciesEdit species)
         {
             using (var ctx = new ApplicationDbContext())
@@ -87,6 +75,25 @@ namespace HaloAPI.Services
                         Origin = e.Origin,
                         SpeciesName = e.SpeciesName,
                         Height = e.Height
+                    }
+                );
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<CharacterListItem> GetCharactersBySpeciesName(string speciesName)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                ctx.Characters
+                .Where(e => e.Species.SpeciesName == speciesName)
+                    .Select(
+                    e =>
+                    new CharacterListItem
+                    {
+                        CharacterId = e.CharacterId,
+                        FirstName = e.FirstName,
+                        LastName = e.LastName
                     }
                 );
                 return query.ToArray();
