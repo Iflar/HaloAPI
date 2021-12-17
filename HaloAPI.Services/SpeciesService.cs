@@ -44,7 +44,8 @@ namespace HaloAPI.Services
                         Lifespan = entity.Lifespan,
                         Height = entity.Height,
                         Origin = entity.Origin,
-                        SpeciesName = entity.SpeciesName
+                        SpeciesName = entity.SpeciesName,
+                        NickName = entity.NickName
                     };
             }
         }
@@ -78,7 +79,8 @@ namespace HaloAPI.Services
                         Lifespan = e.Lifespan,
                         Origin = e.Origin,
                         SpeciesName = e.SpeciesName,
-                        Height = e.Height
+                        Height = e.Height,
+                        NickName = e.NickName
                     }
                 );
                 return query.ToArray();
